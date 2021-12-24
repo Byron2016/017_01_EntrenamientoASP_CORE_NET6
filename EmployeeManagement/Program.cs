@@ -19,4 +19,6 @@ var myKeyb = configuration.GetValue<string>("MyKey");
 
 app.MapGet("/", async (context) => { await context.Response.WriteAsync(myKey); });
 
+// dotnet run MyKey="args" // PARA CORRER DESDE COMMAND LINE.
+
 app.Run( );
