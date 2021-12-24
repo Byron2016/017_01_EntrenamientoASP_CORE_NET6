@@ -15,6 +15,8 @@ var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 var myKeyb = configuration.GetValue<string>("MyKey");
 
-app.MapGet("/", () => $"mykey: {myKey} mykeya: {myKeya} cookieAuthenticationLoginPath: {cookieAuthenticationLoginPath} p: {p} myKeyb: {myKeyb}");
+//app.MapGet("/", () => $"mykey: {myKey} mykeya: {myKeya} cookieAuthenticationLoginPath: {cookieAuthenticationLoginPath} p: {p} myKeyb: {myKeyb}");
 
-app.Run();
+app.MapGet("/", async (context) => { await context.Response.WriteAsync(myKey); });
+
+app.Run( );
